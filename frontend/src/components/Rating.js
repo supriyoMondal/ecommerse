@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const getStarType = (val, compare2) => {
-  return val >= compare2
+const getStarType = (val, comparTwo) => {
+  return val >= comparTwo
     ? "fas fa-star"
-    : val >= compare2 - 0.5
+    : val >= comparTwo - 0.5
     ? "fas fa-star-half-alt"
     : "far fa-star";
 };

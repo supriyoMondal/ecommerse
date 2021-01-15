@@ -7,6 +7,7 @@ import {
   PRODUCT_LIST_SUCCESS,
 } from "../reducers/types";
 import axios from "axios";
+import { getErrorMessage } from "../utils/helpers";
 
 export const listProducts = () => async (dispatch) => {
   try {
@@ -18,10 +19,7 @@ export const listProducts = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: PRODUCT_LIST_FAILED,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: getErrorMessage(error),
     });
   }
 };
@@ -35,10 +33,7 @@ export const listProductDetails = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: PRODUCT_DETAILS_FAILED,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: getErrorMessage(error),
     });
   }
 };

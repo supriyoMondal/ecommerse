@@ -27,7 +27,9 @@ export const userReducer = (state = { loading: false }, action) => {
         loading: false,
       };
     case USER_LOGOUT:
-      return {};
+      return {
+        userInfo: null,
+      };
     default:
       return state;
   }

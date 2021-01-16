@@ -4,6 +4,7 @@ import {
   USER_LOGIN_FAILED,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
+  USER_LOGOUT,
 } from "../reducers/types";
 import { getErrorMessage } from "../utils/helpers";
 
@@ -31,4 +32,9 @@ export const login = (email, password) => async (dispatch) => {
       payload: getErrorMessage(error),
     });
   }
+};
+
+export const logout = () => (dispatch) => {
+  localStorage.removeItem(USER);
+  dispatch({ type: USER_LOGOUT });
 };
